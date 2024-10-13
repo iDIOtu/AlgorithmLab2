@@ -1,0 +1,34 @@
+﻿<Window x:Class="AlgorithmLab2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Hanoi Tower" Width ="1200" MinHeight="800" MinWidth="1200" ResizeMode="NoResize">
+    <Grid>
+        <Canvas Name="canvas" Background="White" Margin="10">
+
+            <Rectangle x:Name="RectDown1" Height="10" Width="300" Fill="Brown" HorizontalAlignment="Left" Stroke="Brown"
+                   VerticalAlignment="Top" Margin="100,650,0,0" Panel.ZIndex="1"/>
+            <Rectangle x:Name="RectVert1" Height="500" Width="10" Fill="Brown" HorizontalAlignment="Left" Stroke="Brown"
+                   VerticalAlignment="Top" Margin="245,150,0,0" Panel.ZIndex="0"/>
+
+
+            <Rectangle x:Name="RectDown2" Height="10" Width="300" Fill="Brown" HorizontalAlignment="Left" Stroke="Brown"
+                   VerticalAlignment="Top" Margin="450,650,0,0" Panel.ZIndex="1"/>
+            <Rectangle x:Name="RectVert2" Height="500" Width="10" Fill="Brown" HorizontalAlignment="Left" Stroke="Brown" 
+                   VerticalAlignment="Top" Margin="595,150,0,0" Panel.ZIndex="1"/>
+
+            <Rectangle x:Name="RectDown3" Height="10" Width="300" Fill="Brown" HorizontalAlignment="Left" Stroke="Brown"
+                   VerticalAlignment="Top" Margin="800,650,0,0" Panel.ZIndex="1"/>
+            <Rectangle x:Name="RectVert3" Height="500" Width="10" Fill="Brown" HorizontalAlignment="Left" Stroke="Brown"
+                   VerticalAlignment="Top" Margin="945,150,0,0" Panel.ZIndex="1"/>
+        </Canvas>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10">
+            <TextBox Name="diskCountTextBox" Width="50" Margin="5" Text="3" TextChanged="DiskCountTextBox_TextChanged"/>
+            <Button Name="startButton" Content="Start" Click="StartButton_Click" Margin="5"/>
+            <Button Name="cancelButton" Content="Cancel" Click="CancelButton_Click" Margin="5" IsEnabled="False"/>
+            <Slider Name="speedSlider" Width="100" Minimum="1" Maximum="100" Value="20" Margin="5" ValueChanged="SpeedSlider_ValueChanged"/>
+            <TextBlock Text="Speed:" VerticalAlignment="Center" Margin="5"/>
+            <TextBlock Name="speedValueTextBlock" Text="20" VerticalAlignment="Center" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>
