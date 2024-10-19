@@ -6,19 +6,19 @@
         <Canvas Name="canvas" Background="White" Margin="10">
 
             <Rectangle x:Name="RectDown1" Height="10" Width="300" Fill="Brown" HorizontalAlignment="Left" Stroke="Brown"
-                   VerticalAlignment="Top" Margin="100,650,0,0" Panel.ZIndex="1"/>
-            <Rectangle x:Name="RectVert1" Height="500" Width="10" Fill="Brown" HorizontalAlignment="Left" Stroke="Brown"
+                   VerticalAlignment="Top" Margin="97.5,650,0,0" Panel.ZIndex="1"/>
+            <Rectangle x:Name="RectVert1" Height="500" Width="5" Fill="Brown" HorizontalAlignment="Left" Stroke="Brown"
                    VerticalAlignment="Top" Margin="245,150,0,0" Panel.ZIndex="0"/>
 
 
             <Rectangle x:Name="RectDown2" Height="10" Width="300" Fill="Brown" HorizontalAlignment="Left" Stroke="Brown"
-                   VerticalAlignment="Top" Margin="450,650,0,0" Panel.ZIndex="1"/>
-            <Rectangle x:Name="RectVert2" Height="500" Width="10" Fill="Brown" HorizontalAlignment="Left" Stroke="Brown" 
+                   VerticalAlignment="Top" Margin="447.5,650,0,0" Panel.ZIndex="1"/>
+            <Rectangle x:Name="RectVert2" Height="500" Width="5" Fill="Brown" HorizontalAlignment="Left" Stroke="Brown" 
                    VerticalAlignment="Top" Margin="595,150,0,0" Panel.ZIndex="1"/>
 
             <Rectangle x:Name="RectDown3" Height="10" Width="300" Fill="Brown" HorizontalAlignment="Left" Stroke="Brown"
-                   VerticalAlignment="Top" Margin="800,650,0,0" Panel.ZIndex="1"/>
-            <Rectangle x:Name="RectVert3" Height="500" Width="10" Fill="Brown" HorizontalAlignment="Left" Stroke="Brown"
+                   VerticalAlignment="Top" Margin="797.5,650,0,0" Panel.ZIndex="1"/>
+            <Rectangle x:Name="RectVert3" Height="500" Width="5" Fill="Brown" HorizontalAlignment="Left" Stroke="Brown"
                    VerticalAlignment="Top" Margin="945,150,0,0" Panel.ZIndex="1"/>
         </Canvas>
 

@@ -13,12 +13,13 @@ namespace AlgorithmLab2
     public partial class MainWindow : Window
     {
         private const int TowerCount = 3;
-        private const int DiskHeight = 20;
-        private const int DiskWidthIncrement = 30;
+        private const int DiskHeight = 19;
+        private const int DiskWidthIncrement = 15;
         private readonly Stack<int>[] towers = new Stack<int>[TowerCount];
         private Rectangle[,] diskRectangles;
         private int animationSpeed = 5;
         private CancellationTokenSource cancellationTokenSource;
+        Random random = new Random();
 
         public MainWindow()
         {
@@ -97,7 +98,7 @@ namespace AlgorithmLab2
                     StrokeThickness = 1
                 };
 
-                double leftPosition = 250 - width / 2;
+                double leftPosition = 247.5 - width / 2;
                 double topPosition = 650 - (i + 1) * DiskHeight;
 
                 Canvas.SetLeft(rect, leftPosition);
@@ -146,9 +147,9 @@ namespace AlgorithmLab2
             double towerCenterX;
             switch (to)
             {
-                case 0: towerCenterX = 250; break;
-                case 1: towerCenterX = 600; break;
-                case 2: towerCenterX = 950; break;
+                case 0: towerCenterX = 247.5; break;
+                case 1: towerCenterX = 597.5; break;
+                case 2: towerCenterX = 947.5; break;
                 default: towerCenterX = 250; break;
             }
 
