@@ -19,7 +19,6 @@ namespace AlgorithmLab2
         private Rectangle[,] diskRectangles;
         private int animationSpeed = 5;
         private CancellationTokenSource cancellationTokenSource;
-        Random random = new Random();
 
         public MainWindow()
         {
@@ -88,18 +87,28 @@ namespace AlgorithmLab2
 
             for (int i = 0; i < diskCount; i++)
             {
-                int width = DiskWidthIncrement * (diskCount - i);
+                double width;
+                double height = DiskHeight;
+
+                if (diskCount <= 20)
+                    width = DiskWidthIncrement * (diskCount - i);
+                else
+                    width = 300 - 285.0/(diskCount - 1) * i;
+
+                if (diskCount > 26)
+                    height = 500.0/diskCount;
+
                 var rect = new Rectangle
                 {
                     Width = width,
-                    Height = DiskHeight,
+                    Height = height,
                     Fill = new SolidColorBrush(Colors.Blue),
                     Stroke = new SolidColorBrush(Colors.Black),
                     StrokeThickness = 1
                 };
 
                 double leftPosition = 247.5 - width / 2;
-                double topPosition = 650 - (i + 1) * DiskHeight;
+                double topPosition = 650 - (i + 1) * height;
 
                 Canvas.SetLeft(rect, leftPosition);
                 Canvas.SetTop(rect, topPosition);
@@ -127,12 +136,12 @@ namespace AlgorithmLab2
             if (n > 0)
             {
                 await MoveDisks(n - 1, start, end, temp, token);
-                await MoveDisk(start, end, token);
+                await MoveDisk(start, end, token, n);
                 await MoveDisks(n - 1, temp, start, end, token);
             }
         }
 
-        private async Task MoveDisk(int from, int to, CancellationToken token)
+        private async Task MoveDisk(int from, int to, CancellationToken token, int n)
         {
             if (towers[from].Count == 0) return;
 
@@ -154,7 +163,11 @@ namespace AlgorithmLab2
             }
 
             double targetX = towerCenterX - rect.Width / 2;
-            double targetY = 650 - towers[to].Count * DiskHeight;
+
+            double height = DiskHeight;
+
+
+            double targetY = 650 - towers[to].Count * height;
 
             await AnimateDisk(rect, targetX, targetY);
         }
