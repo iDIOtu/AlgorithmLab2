@@ -18,7 +18,7 @@ namespace AlgorithmLab2
 
         private void ButtonToPage2_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new MandelbrotSet());
+            MainFrame.Navigate(new TSquare());
         }
     }
 }
