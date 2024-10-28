@@ -35,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -58,9 +64,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Graphicsxaml.xaml.cs">
+      <DependentUpon>Graphicsxaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HanoiTowerStack.cs" />
+    <Compile Include="IExucate.cs" />
+    <Compile Include="TimeCounter.cs" />
     <Compile Include="TSquare.xaml.cs">
       <DependentUpon>TSquare.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TSquareRecursive.cs" />
+    <Compile Include="TSquareStack.cs" />
+    <Page Include="Graphicsxaml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="HanoiTowers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -73,7 +91,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HanoiTower.cs" />
+    <Compile Include="HanoiTowerRecursive.cs" />
     <Compile Include="HanoiTowers.xaml.cs">
       <DependentUpon>HanoiTowers.xaml</DependentUpon>
     </Compile>

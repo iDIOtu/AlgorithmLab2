@@ -1,42 +1,49 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Ink;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
 namespace AlgorithmLab2
 {
-    /// <summary>
-    /// Логика взаимодействия для TSquare.xaml
-    /// </summary>
     public partial class TSquare : Page
     {
+        private int _delay = 0;
         public TSquare()
         {
             InitializeComponent();
+            DrawFractalOutline(440, 250, 525);
+            DrawTSquare(440, 250, 300, 3);
         }
 
         private async void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            FractalCanvas.Children.Clear();
             DepthInput.IsEnabled = false;
             StartButton.IsEnabled = false;
+            CheckButton.IsEnabled = true;
 
-            if (int.TryParse(DepthInput.Text, out int depth) && depth > 0)
+            if (int.TryParse(DepthInput.Text, out int depth) && depth > 0 && depth < 11)
             {
-                DrawFractalOutline(415, 250, Enumerable.Range(0, depth).Sum(i => 300.0 /Math.Pow(2, i)));
-                await DrawTSquare(415, 250, 300, depth);
+                FractalCanvas.Children.Clear();
+                _delay = 1;
+                DrawFractalOutline(440, 250, Enumerable.Range(0, depth).Sum(i => 300.0 /Math.Pow(2, i)));
+                await DrawTSquare(440, 250, 300, depth);
+            }
+            else if (depth >10)
+            {
+                MessageBox.Show("Maximum depth value: 10");
             }
             else
             {
-                MessageBox.Show("Пожалуйста, введите корректное значение глубины.");
+                MessageBox.Show("Please enter a valid depth value.");
             }
 
             DepthInput.IsEnabled = true;
             StartButton.IsEnabled = true;
+            CheckButton.IsEnabled = false;
         }
 
         private async Task DrawTSquare(double centerX, double centerY, double size, int depth)
@@ -58,13 +65,10 @@ namespace AlgorithmLab2
 
             double newSize = size / 2;
 
-            await Task.Delay(0);
+            await Task.Delay(_delay);
             await DrawTSquare(centerX - size / 2, centerY - size / 2, newSize, depth - 1); // Верхний левый
-            //await Task.Delay(1);
             await DrawTSquare(centerX - size / 2, centerY + size / 2, newSize, depth - 1); // Нижний левый
-            //await Task.Delay(1);
             await DrawTSquare(centerX + size / 2, centerY - size / 2, newSize, depth - 1); // Верхний правый
-            //await Task.Delay(1);
             await DrawTSquare(centerX + size / 2, centerY + size / 2, newSize, depth - 1); // Нижний правый 
         }
 
@@ -81,6 +85,11 @@ namespace AlgorithmLab2
             Canvas.SetLeft(outline, centerX - size / 2);
             Canvas.SetTop(outline, centerY - size / 2);
             FractalCanvas.Children.Add(outline);
+        }
+
+        private void CheckButton_Click(object sender, RoutedEventArgs e)
+        {
+            _delay = 0;
         }
     }
 }

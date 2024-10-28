@@ -4,8 +4,9 @@
         Title="AlgorithmLab2" Width ="1200" MinHeight="800" MinWidth="1200" ResizeMode="NoResize">
 
     <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10">
-        <Button Name="ButtonToPage1" Content="Tower of Hanoi" Click="ButtonToPage1_Click" Margin="10"/>
-        <Button Name="ButtonToPage2" Content="T-Square" Click="ButtonToPage2_Click" Margin="10"/>
+        <Button Name="ButtonToPage1" Content="Tower of Hanoi" Click="ButtonToPage1_Click" Margin="10" Height="20"/>
+        <Button Name="ButtonToPage2" Content="T-Square" Click="ButtonToPage2_Click" Margin="10" Height="20"/>
+        <Button Name="ButtonToPage3" Content="Graphics" Click="ButtonToPage3_Click" Margin="10" Height="20"/>
         <Frame Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </StackPanel>
 </Window>

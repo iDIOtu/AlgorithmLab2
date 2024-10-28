@@ -20,5 +20,10 @@ namespace AlgorithmLab2
         {
             MainFrame.Navigate(new TSquare());
         }
+
+        private void ButtonToPage3_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Graphicsxaml());
+        }
     }
 }
